@@ -1,0 +1,45 @@
+<h1>Users</h1>
+<%= link_to "New User", new_user_path, :class => "btn btn-success pull-right", data: { toggle: "modal", target: "#newUserModal" } %>
+
+<%= render "users/role_search_form"%>
+
+<table class="table table-bordered">
+ 	<tr>
+ 		<td>Id</td>
+ 		<td>FirstName</td>
+ 		<td>LastName</td>
+ 		<td>Email</td>
+ 		<td>Role</td>
+ 		<td colspan="2">Actions</td>
+ 	</tr>
+ 		<% @users.each do |user| %>
+ 			<tr>
+ 				<td><%= user.id %></td>
+ 				<td><%= user.first_name %></td>
+ 				<td><%= user.last_name %></td>
+ 				<td><%= user.email %></td>
+ 				<td><%= user.role %></td>
+ 				<td><%= link_to "EDIT USER", edit_user_path(user), :class => "btn btn-info"%></td>
+ 				<td><%= link_to "DELETE USER", user, :class => "btn btn-danger"%></td>
+ 			</tr>
+ 		<% end %>
+</table>
+<%= will_paginate @users, :remote => true  %>
+
+
+<div class="modal fade row" id="newUserModal" tabindex="-1" role="dialog" aria-labelledby="reasonModalLabel" aria-hidden="true">
+  <div class="modal-dialog">
+    <div class="modal-content">
+      <div class="modal-header">
+        <button type="button" class="close" data-dismiss="modal"><span aria-hidden="true">&times;</span><span class="sr-only">Close</span></button>
+        <h4>New User</h4>
+      </div>
+      <div class="modal-body">
+         <div id="user_modal"></div>
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+      </div>
+    </div>
+  </div>
+</div>

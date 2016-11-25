@@ -2,7 +2,7 @@ version: 0.0
 os: linux  
 files:  
   - source: /
-    destination: /var/www/DemoApi
+    destination: appl/www/DemoApi
 hooks:  
   BeforeInstall:
     - location: .scripts/install_dependencies.sh

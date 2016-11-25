@@ -1,1 +1,1 @@
-mkdir balaraju
+mkdir ~/balaraju12

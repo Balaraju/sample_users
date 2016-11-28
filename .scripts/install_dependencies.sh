@@ -1,1 +1,1 @@
-mkdir ~/balaraju12
+insatall mysql
